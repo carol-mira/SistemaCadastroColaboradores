@@ -111,15 +111,15 @@ namespace SistemaCadastroColaboradores
             this.Lista.Font = new System.Drawing.Font("MV Boli", 9.75F);
             this.Lista.FormattingEnabled = true;
             this.Lista.ItemHeight = 17;
-            this.Lista.Location = new System.Drawing.Point(68, 235);
+            this.Lista.Location = new System.Drawing.Point(123, 226);
             this.Lista.Name = "Lista";
-            this.Lista.Size = new System.Drawing.Size(565, 157);
+            this.Lista.Size = new System.Drawing.Size(366, 242);
             this.Lista.TabIndex = 7;
             // 
             // buttonAlterar
             // 
             this.buttonAlterar.Font = new System.Drawing.Font("MV Boli", 9.75F);
-            this.buttonAlterar.Location = new System.Drawing.Point(63, 398);
+            this.buttonAlterar.Location = new System.Drawing.Point(509, 226);
             this.buttonAlterar.Name = "buttonAlterar";
             this.buttonAlterar.Size = new System.Drawing.Size(150, 30);
             this.buttonAlterar.TabIndex = 8;
@@ -130,7 +130,7 @@ namespace SistemaCadastroColaboradores
             // buttonExcluir
             // 
             this.buttonExcluir.Font = new System.Drawing.Font("MV Boli", 9.75F);
-            this.buttonExcluir.Location = new System.Drawing.Point(219, 398);
+            this.buttonExcluir.Location = new System.Drawing.Point(509, 262);
             this.buttonExcluir.Name = "buttonExcluir";
             this.buttonExcluir.Size = new System.Drawing.Size(150, 30);
             this.buttonExcluir.TabIndex = 9;
@@ -142,7 +142,7 @@ namespace SistemaCadastroColaboradores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 494);
             this.Controls.Add(this.buttonExcluir);
             this.Controls.Add(this.buttonAlterar);
             this.Controls.Add(this.Lista);
