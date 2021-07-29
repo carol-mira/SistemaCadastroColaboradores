@@ -30,7 +30,7 @@ namespace SistemaCadastroColaboradores
             comboTipo.Items.Add("Trabalho");
             comboTipo.Items.Add("WhatsApp");
 
-            comboTipo.SelectedIndex = 0; //definindo a opção que aparecerá na caixinha de seleção.
+            comboTipo.SelectedIndex = 0; //definindo a opção que aparecerá na caixinha de seleção (estético).
 
         }
 
@@ -48,51 +48,63 @@ namespace SistemaCadastroColaboradores
         {
             int index = -1; // novo cadastro
 
+            //Aqui estou percorrendo a lista de Funcionários para verificar se a pessoa já existe e se não existe consigo fazer um novo cadastro.
             foreach (Funcionarios funcionario in funcionarios)// verifica se a lista contém intens
             {
-                {
-                    if (funcionario.Nome == txtNome.Text) // verifica se o Nome já esta cadastrado.
-                    {
-                        index = funcionarios.IndexOf(funcionario); //atribui o cadastro de Nome dentro da lista funcionarios.
-                    }
+                
+               if (funcionario.Telefone == maskedTelefone.Text) // verifica se o Telefone já está cadastrado, assim bloqueando o cadastro do mesmo número.
+               {
+                 index = funcionarios.IndexOf(funcionario); //atribui o cadastro de Nome dentro da lista funcionarios.
+               }
 
-                }
+                
+            }
 
-                if (txtNome.Text == "") // está dizendo que o campo não foi preenchido campo nome
-                {
-                    MessageBox.Show("Preencha o campo nome.");
-                    txtNome.Focus();
-                    return;
-                }
-                if (maskedTelefone.Text == "") // está dizendo que o campo não foi preenchido campo telefone
-                {
-                    MessageBox.Show("Preencha o campo telefone.");
-                    maskedTelefone.Focus();
-                    return;// finaliza caso os campos não sejam preenchidos corretamente.
-                }
+              if (txtNome.Text == "") // está dizendo que o campo nome não foi preenchido.
+              {
+                 MessageBox.Show("Preencha o campo nome.");
+                 txtNome.Focus();
+                 return;
+              }
 
+              if (maskedTelefone.Text == "(  )     -") // está dizendo que o campo não foi preenchido campo telefone
+              {
+                MessageBox.Show("Preencha o campo telefone.");
+                maskedTelefone.Focus();
+                return;// finaliza caso os campos não sejam preenchidos corretamente.
+              }
+                
                 Funcionarios f = new Funcionarios();//criado objeto pessoa com todos os dados fornecidos.
                 f.Nome = txtNome.Text;
                 f.Telefone = maskedTelefone.Text;
                 f.Tipo = comboTipo.SelectedItem.ToString();
 
-                if (index < 0) // para um novo cadastro
-                {
-                    funcionarios.Add(f);
-                }
-                else// caso queira alterar
-                {
-                    funcionarios[index] = f;
-                }
+            if (index < 0) // para um novo cadastro
+            {
+                funcionarios.Add(f);
+            }
+            
+
+            Lista.Items.Clear();
+
+            foreach (var item in funcionarios)
+            {
+                Lista.Items.Add(item.Nome);//aparece o nome na lista
+                Lista.Items.Add(item.Telefone);//aparece o nome na lista
+                Lista.Items.Add(item.Tipo);//aparece o nome na lista
+
+
             }
         }
 
 
         private void buttonExcluir_Click(object sender, EventArgs e)
         {
-
+            int indice = Lista.SelectedIndex;//verifica a lista de funcionario
+            funcionarios.RemoveAt(indice);
+            Listar();//metódo para remover os itens da lista assim que selecionados.
         }
-        //listar todas as pessoas cadastradas
+        
 
         private void Listar()
         {
@@ -107,6 +119,12 @@ namespace SistemaCadastroColaboradores
             }
         }
 
+        private void buttonAlterar_Click(object sender, EventArgs e) 
+        {
+            
+        }
+
+      
     }
 }
         
